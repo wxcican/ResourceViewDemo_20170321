@@ -10,6 +10,7 @@ import android.widget.ListView;
 import android.widget.Toast;
 
 import com.fuicuiedu.xc.resourceviewdemo_20170321.demoa.DemoAActivity;
+import com.fuicuiedu.xc.resourceviewdemo_20170321.demob.DemoBActivity;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -51,8 +52,8 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
                 break;
             //"下拉刷新"
             case 1:
-//                intent = new Intent(this, DemoBActivity.class);
-//                startActivity(intent);
+                intent = new Intent(this, DemoBActivity.class);
+                startActivity(intent);
                 break;
             //"上拉加载"
             case 2:
