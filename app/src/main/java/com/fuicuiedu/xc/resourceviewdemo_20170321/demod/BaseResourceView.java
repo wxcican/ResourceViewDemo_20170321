@@ -66,19 +66,33 @@ public abstract class BaseResourceView<Model,ItemView extends BaseItemView<Model
     //让使用者，重写实现此方法，确定itemView的视图
     protected abstract ItemView creatItemView();
 
-    //数据的加载
-//    1.对外提供“加载数据”的方法，让使用者必须实现
-//    2.刷新，加载操作实现
+//    对外提供“加载数据”的方法，让使用者必须实现
+    protected abstract Call queryData(int limit);
+
+    //单次请求多少条数据
+    protected abstract int getLimit();
+
+    private int skip = 0;
+
+
 
     //  ######################  下拉刷新，上拉加载监听start    ##################
     @Override
     public void onRefresh() {
         //执行刷新操作
+        call.执行->拿到数据;
+        if (数据请求成功){
+            skip = 刷新数据.size();
+        }
     }
 
     @Override
     public void onLoadMore() {
         //执行加载操作
+        call.执行->拿到数据;
+        if (数据加载成功){
+            skip = skip + 加载数据.size();
+        }
     }
 
     @Override
@@ -91,6 +105,7 @@ public abstract class BaseResourceView<Model,ItemView extends BaseItemView<Model
         return false;
     }
     //  ######################  下拉刷新，上拉加载监听over   ##################
+
     protected class ModelAdapter extends RecyclerView.Adapter{
 //        数据，视图
 //        怎么实现，使用时，想用什么数据，就用什么数据呢？    -> 使用泛型

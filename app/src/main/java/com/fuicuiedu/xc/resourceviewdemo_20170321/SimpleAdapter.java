@@ -41,8 +41,10 @@ public class SimpleAdapter extends RecyclerView.Adapter<SimpleAdapter.DemoViewHo
     public void onBindViewHolder(DemoViewHolder holder, int position) {
         //拿到数据
         String data = datas.get(position);
+        //拿到当前项的视图
+        TextView textView = holder.textView;
         //绑定数据
-        holder.textView.setText(data);
+        textView.setText(data);
     }
 
     //获取item数量

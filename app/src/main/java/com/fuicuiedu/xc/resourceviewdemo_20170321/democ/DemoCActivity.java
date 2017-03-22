@@ -38,7 +38,7 @@ public class DemoCActivity extends AppCompatActivity implements
         //下拉刷新
         swipeRefreshLayout.setOnRefreshListener(this);
 
-        //上拉加载（mugen）
+        //上拉加载（mugen）,（会检测到列表是否滑动到底部，如果到了底部执行“onLoadMore”）
         Mugen.with(recyclerView,this).start();
     }
 
@@ -114,6 +114,8 @@ public class DemoCActivity extends AppCompatActivity implements
     }
 
     //是否加载完所有数据
+    // （如果返回true，则列表滑动到底部时，不再执行onLoadMore）
+//    如果返回false，列表滑动到底部时，执行onLoadMore
     @Override
     public boolean hasLoadedAllItems() {
         return false;
